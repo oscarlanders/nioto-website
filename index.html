@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIOTO - Nouvelle Industrie des Oléagineux du Togo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@300;400;600;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: #171717;
+            background: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid #e5e5e5;
+            transition: all 0.3s ease;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        header.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Anybody', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            color: #006837;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.7;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: #006837;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #525252;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #006837;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #FFCD00;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: #006837 !important;
+            color: #ffffff !important;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: #004124 !important;
+            transform: translateY(-2px);
+        }
+
+        .nav-cta::after {
+            display: none;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 140%;
+            background: radial-gradient(circle, rgba(255, 205, 0, 0.06) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(30px, -30px) rotate(120deg);
+            }
+            66% {
+                transform: translate(-20px, 20px) rotate(240deg);
+            }
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 6rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            animation: fadeInLeft 1s ease-out;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: #FFCD00;
+            color: #004124;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 2rem;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Anybody', sans-serif;
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            color: #006837;
+            margin-bottom: 1.5rem;
+            animation: fadeIn 1s ease-out 0.5s both;
+        }
+
+        .hero h1 .highlight {
+            color: #171717;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0.1em;
+            left: 0;
+            width: 100%;
+            height: 0.15em;
+            background: #FFCD00;
+            z-index: -1;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: #525252;
+            line-height: 1.7;
+            max-width: 600px;
+            margin-bottom: 3rem;
+            animation: fadeIn 1s ease-out 0.7s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: fadeIn 1s ease-out 0.9s both;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #006837;
+            color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 104, 55, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: #004124;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 104, 55, 0.3);
+        }
+
+        .btn-secondary {
+            background: #ffffff;
+            color: #006837;
+            border: 2px solid #e5e5e5;
+        }
+
+        .btn-secondary:hover {
+            border-color: #006837;
+            transform: translateY(-3px);
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: fadeInRight 1s ease-out 0.5s both;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 30px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #006837, #004124);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-icon {
+            font-size: 12rem;
+            opacity: 0.3;
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .floating-card {
+            position: absolute;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            animation: floatCard 6s ease-in-out infinite;
+        }
+
+        @keyframes floatCard {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .floating-card:nth-child(2) {
+            top: 10%;
+            right: -10%;
+        }
+
+        .floating-card:nth-child(3) {
+            bottom: 15%;
+            left: -15%;
+            animation-delay: 2s;
+        }
+
+        .floating-card-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .floating-card-title {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #006837;
+        }
+
+        /* Stats */
+        .stats {
+            padding: 6rem 2rem;
+            background: #ffffff;
+        }
+
+        .stats-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 20px;
+            background: #fafafa;
+            transition: transform 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .stat-item.visible {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-family: 'Anybody', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            color: #006837;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .stat-label {
+            color: #525252;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Section */
+        .section {
+            padding: 8rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 5rem;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #006837;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Anybody', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            color: #171717;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-description {
+            font-size: 1.15rem;
+            color: #525252;
+            line-height: 1.7;
+        }
+
+        /* Products */
+        .products {
+            background: #fafafa;
+        }
+
+        .products-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: #ffffff;
+            border-radius: 30px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .product-card.visible {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        .product-image {
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-image.queens {
+            background: linear-gradient(135deg, #FF9A00, #FFCD00);
+        }
+
+        .product-image.shea {
+            background: linear-gradient(135deg, #D4A574, #E8D4A8);
+        }
+
+        .product-image.tourteau {
+            background: linear-gradient(135deg, #8B7355, #A0826D);
+        }
+
+        .product-icon {
+            font-size: 8rem;
+            opacity: 0.3;
+            transition: all 0.4s ease;
+        }
+
+        .product-card:hover .product-icon {
+            transform: scale(1.1) rotate(10deg);
+            opacity: 0.5;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: #ffffff;
+            color: #006837;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .product-content {
+            padding: 2.5rem;
+        }
+
+        .product-title {
+            font-family: 'Anybody', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #006837;
+            margin-bottom: 1rem;
+        }
+
+        .product-description {
+            color: #525252;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .product-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .product-features li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #525252;
+            font-size: 0.9rem;
+        }
+
+        .product-features li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #FFCD00;
+            font-weight: bold;
+        }
+
+        /* CTA */
+        .cta-section {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, #FFCD00, #FFE066);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 104, 55, 0.05) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-family: 'Anybody', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            color: #006837;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            color: #004124;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            background: #171717;
+            color: #ffffff;
+            padding: 5rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-logo {
+            font-family: 'Anybody', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: #FFCD00;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-description {
+            color: #a3a3a3;
+            line-height: 1.7;
+        }
+
+        .footer-section h3 {
+            color: #ffffff;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #a3a3a3;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #FFCD00;
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: #525252;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+            }
+
+            .floating-card {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #ffffff;
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+                display: none;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero-description {
+                font-size: 1.1rem;
+            }
+
+            .section {
+                padding: 5rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .stats {
+                padding: 4rem 1.5rem;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section h2 {
+                font-size: 2.5rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <a href="#accueil" class="logo">NIOTO</a>
+            <button class="mobile-toggle" id="mobileToggle">☰</button>
+            <ul class="nav-links" id="navMenu">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#produits">Produits</a></li>
+                <li><a href="#sante">Santé</a></li>
+                <li><a href="#engagement">Impact</a></li>
+                <li><a href="#contact" class="nav-cta">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="accueil">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">🇹🇬 Made in Togo</div>
+                <h1>
+                    Transformer<br>
+                    <span class="highlight">l'excellence</span><br>
+                    africaine
+                </h1>
+                <p class="hero-description">
+                    Leader togolais de la transformation des oléagineux. Nous produisons 
+                    des huiles alimentaires enrichies et du beurre de karité premium pour 
+                    nourrir l'Afrique et le monde.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#produits" class="btn btn-primary">
+                        Nos produits <span>→</span>
+                    </a>
+                    <a href="#engagement" class="btn btn-secondary">
+                        Notre impact
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-image-container">
+                    <div class="hero-icon">🌿</div>
+                </div>
+                <div class="floating-card">
+                    <div class="floating-card-icon">🌻</div>
+                    <div class="floating-card-title">Huile Queen's</div>
+                </div>
+                <div class="floating-card">
+                    <div class="floating-card-icon">🏆</div>
+                    <div class="floating-card-title">N°1 Karité</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">#1</div>
+                <div class="stat-label">Beurre de karité en Afrique de l'Ouest</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">Entreprises partenaires</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Matières togolaises</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">🇪🇺</div>
+                <div class="stat-label">Normes européennes</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="section products" id="produits">
+        <div class="section-header">
+            <div class="section-label">Nos Produits</div>
+            <h2 class="section-title">Excellence & Qualité</h2>
+            <p class="section-description">
+                Trois produits premium, transformés localement avec passion et expertise.
+            </p>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image queens">
+                    <div class="product-badge">Best Seller</div>
+                    <div class="product-icon">🌻</div>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Huile Queen's</h3>
+                    <p class="product-description">
+                        Huile raffinée de graines de coton, enrichie en vitamines A et E. 
+                        Le choix santé pour toute la famille.
+                    </p>
+                    <ul class="product-features">
+                        <li>100% végétale, sans cholestérol</li>
+                        <li>AGMI 18,7% + AGPI 49,8%</li>
+                        <li>Vitamines A et E enrichies</li>
+                        <li>Friture et assaisonnement</li>
+                        <li>Normes européennes</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image shea">
+                    <div class="product-badge">Premium</div>
+                    <div class="product-icon">🌰</div>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Beurre de Karité</h3>
+                    <p class="product-description">
+                        Beurre brut premium pour cosmétique, chocolaterie et confiserie. 
+                        Qualité irréprochable certifiée.
+                    </p>
+                    <ul class="product-features">
+                        <li>N°1 en Afrique de l'Ouest</li>
+                        <li>Qualité premium certifiée</li>
+                        <li>Production durable</li>
+                        <li>Cosmétique & pharmaceutique</li>
+                        <li>Chocolaterie & confiserie</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image tourteau">
+                    <div class="product-badge">Durable</div>
+                    <div class="product-icon">🌾</div>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tourteaux de Coton</h3>
+                    <p class="product-description">
+                        Riche en protéines végétales pour alimentation animale 
+                        et agriculture durable.
+                    </p>
+                    <ul class="product-features">
+                        <li>Riche en protéines</li>
+                        <li>Alimentation animale</li>
+                        <li>Agriculture biologique</li>
+                        <li>Valorisation complète</li>
+                        <li>Production éco-responsable</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" id="contact">
+        <div class="cta-content">
+            <h2>Rejoignez NIOTO</h2>
+            <p>
+                Consommateurs, distributeurs ou partenaires industriels : 
+                découvrez comment nous pouvons travailler ensemble.
+            </p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">
+                    Devenir Distributeur <span>→</span>
+                </a>
+                <a href="#" class="btn btn-secondary">
+                    Nous Contacter
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">NIOTO</div>
+                    <p class="footer-description">
+                        Nouvelle Industrie des Oléagineux du Togo. Leader de la transformation 
+                        et N°1 du beurre de karité en Afrique de l'Ouest.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Produits</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Huile Queen's</a></li>
+                        <li><a href="#">Beurre de Karité</a></li>
+                        <li><a href="#">Tourteaux</a></li>
+                        <li><a href="#">Certifications</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Entreprise</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">À Propos</a></li>
+                        <li><a href="#">Engagement</a></li>
+                        <li><a href="#">Qualité</a></li>
+                        <li><a href="#">Carrières</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Lomé, Togo</a></li>
+                        <li><a href="#">+228 XX XX XX XX</a></li>
+                        <li><a href="#">contact@nioto.tg</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 NIOTO SA — Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Close menu when clicking on links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileToggle.textContent = '☰';
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animatable elements
+        document.querySelectorAll('.stat-item, .product-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
